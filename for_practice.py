@@ -50,3 +50,76 @@ for i in range(1, 6):
         continue
     print("Inside the loop.", i)
 print("Outside the loop.")
+
+# Prompt the user to enter a word
+# and assign it to the userWord variable.
+userWord = input("Enter a word :")
+userWord = userWord.upper()
+for letter in userWord:
+    # Complete the body of the for loop.
+    if letter == "A" or letter == "E" or letter == "I" or letter == "O" or letter == "U":
+        continue
+    else:
+        print(letter)
+##################################################
+wordWithoutVovels = ""
+
+# Prompt the user to enter a word
+# and assign it to the userWord variable
+
+userWord = input("Enter Word :")
+userWord = userWord.upper()
+for letter in userWord:
+    # Complete the body of the loop.
+    if letter == "A" or letter == "E" or letter == "I" or letter == "O" or letter == "U":
+        continue
+    else:
+        wordWithoutVovels += letter
+
+# Print the word assigned to wordWithoutVowels.
+print(wordWithoutVovels)
+
+#######################
+for i in range(5):
+    print(i)
+else:
+    print("else:", i)
+################################
+
+i = 111
+for i in range(2, 1):
+    print(i)
+else:
+    print("else:", i)
+
+#####################
+
+# Listen to this story: a boy and his father, a computer programmer, are playing with wooden blocks. They are building a pyramid.
+#
+# Their pyramid is a bit weird, as it is actually a pyramid-shaped wall - it's flat. The pyramid is stacked according to one simple principle: each lower layer contains one block more than the layer above.
+#
+# The figure illustrates the rule used by the builders:
+#
+#
+#
+# Your task is to write a program which reads the number of blocks the builders have, and outputs the height of the pyramid that can be built using these blocks.
+#
+# Note: the height is measured by the number of fully completed layers - if the builders don't have a sufficient number of blocks and cannot complete the next layer, they finish their work immediately.
+#
+# Test your code using the data we've provided.
+
+
+blocks = int(input("Enter the number of blocks: "))
+
+#
+# Write your code here.
+#
+height = 0
+while True:
+    if blocks < height or blocks == height:
+        break
+    else:
+        height += 1
+        blocks -= height
+
+print("The height of the pyramid:", height)
