@@ -23,3 +23,38 @@ while counter:
     print("Inside the loop")
     counter -= 1
 print("Outside the loop")
+
+secret_number = 777
+
+print(
+"""
++================================+
+| Welcome to my game, muggle!    |
+| Enter an integer number        |
+| and guess what number I've     |
+| picked for you.                |
+| So, what is the secret number? |
++================================+
+""")
+number = 0
+while secret_number != number:
+    print("Ha ha! You're stuck in my loop!")
+    number = int(input("Enter Secret Number : "))
+print("Well done, muggle! you are free now")
+
+
+largestNumber = -99999999
+counter = 0
+
+while True:
+    number = int(input("Enter a number or type -1 to end program: "))
+    if number == -1:
+        break
+    counter += 1
+    if number > largestNumber:
+        largestNumber = number
+
+if counter != 0:
+    print("The largest number is", largestNumber)
+else:
+    print("You haven't entered any number.")
