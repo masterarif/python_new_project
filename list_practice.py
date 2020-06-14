@@ -202,4 +202,304 @@ while swapped:
         if i == (len(myList) - 1):
             swapped = True
 
+##########################################
+myList = [8, 10, 6, 2, 4] # list to sort
+swapped = True # it's a little fake - we need it to enter the while loop
 
+while swapped:
+    swapped = False # no swaps so far
+    for i in range(len(myList) - 1):
+        if myList[i] > myList[i + 1]:
+            swapped = True # swap occured!
+            myList[i], myList[i + 1] = myList[i + 1], myList[i]
+
+print(myList)
+
+################################
+
+myList = [8, 10, 6, 2, 4]
+myList.sort()
+print(myList)
+
+##################################
+
+lst = [5, 3, 1, 2, 4]
+print(lst)
+
+lst.reverse()
+print(lst) # outputs: [4, 2, 1, 3, 5]
+
+##################################
+
+a = "A"
+b = "B"
+c = "C"
+d = " "
+
+lst = [a, b, c, d]
+lst.reverse()
+
+print(lst)
+
+##################################
+myList = []
+swapped = True
+num = int(input("How many elements do you want to sort: "))
+for i in range(num):
+    val = float(input("Enter a list element: "))
+    myList.append(val)
+while swapped:
+    swapped = False
+    for i in range(len(myList) - 1):
+        if myList[i] > myList[i + 1]:
+            swapped = True
+            myList[i], myList[i + 1] = myList[i + 1], myList[i]
+
+print("\nSorted:")
+print(myList)
+###################
+list1 = [1]
+list2 = list1
+list1[0] = 2
+print(list2)
+list1[0] = 3
+print(list2)
+
+#########################
+
+ist1 = [1]
+list2 = list1[:]
+list1[0] = 2
+print(list2)
+
+#####################
+
+# Copying the whole list
+list1 = [1]
+list2 = list1[:]
+list1[0] = 2
+print(list2)
+#######################
+# Copying part of the list
+myList = [10, 8, 6, 4, 2]
+newList = myList[1:3]
+print(newList)
+##########################
+myList = [10, 8, 6, 4, 2]
+newList = myList[1:-1]
+print(newList)
+#######################
+myList = [10, 8, 6, 4, 2]
+newList = myList[-1:1]
+print(newList)
+####################
+myList = [10, 8, 6, 4, 2]
+newList = myList[:3]
+print(newList)
+
+##################
+myList = [10, 8, 6, 4, 2]
+newList = myList[:3]
+print(newList)
+
+############################
+
+myList = [10, 8, 6, 4, 2]
+newList = myList[3:]
+print(newList)
+
+#################
+
+myList = [10, 8, 6, 4, 2]
+newList = myList[:]
+print(newList)
+
+############################
+
+del myList[1:3]
+print(myList)
+
+############################
+
+myList = [10, 8, 6, 4, 2]
+del myList[:]
+print(myList)
+
+############################
+
+myList = [10, 8, 6, 4, 2]
+del myList
+print(myList) ##runtime error
+
+############################
+
+myList = [0, 3, 12, 8, 2]
+
+print(5 in myList)
+print(5 not in myList)
+print(12 in myList)
+
+##########################
+
+myList = [1, "Arif", "Khan", 15]
+print("Arif" in myList)
+
+#############################
+
+myList = [3, 11, 5, 1, 9, 7, 15, 13, 17]
+largest = myList[0]
+
+for i in range(1, len(myList)):
+    if myList[i] > largest:
+        largest = myList[i]
+
+print(largest)
+print(len(myList))
+
+###############################
+
+myList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+toFind = 5
+found = False
+
+for i in range(len(myList)):
+    found = myList[i] == toFind
+    if found:
+        break
+
+if found:
+    print("Element found at index", i)
+else:
+    print("absent")
+
+
+#######################
+
+myList = []
+found = False
+
+n = int(input("Enter number of element :"))
+for i in range(0, n):
+    ele = int(input("Enter Number :"))
+    myList.append(ele)
+print(myList)
+
+toFind = int(input("Enter to be find : "))
+for i in range(len(myList)):
+    found = myList[i] == toFind
+    if found:
+        break
+
+if found:
+    print("Element found at index", i + 1, "and the number was ", myList[i])
+else:
+    print("absent")
+
+#############################
+
+myList = [1, 2, 4, 4, 1, 4, 2, 6, 2, 9]
+#
+# put your code here
+#
+tempList = []
+for i in range(len(myList)):
+    if i not in tempList:
+        tempList.append(i)
+
+print("The list with unique elements only:")
+print("Hello :", str(tempList))
+##############################
+# Python 3 code to demonstrate
+# removing duplicated from list
+# using naive methods
+
+# initializing list
+test_list = [1, 3, 5, 6, 3, 5, 6, 1]
+print("The original list is : " + str(test_list))
+
+# using naive method
+# to remove duplicated
+# from list
+res = []
+for i in test_list:
+    if i not in res:
+        res.append(i)
+
+    # printing list after removal
+print("The list after removing duplicates : " + str(res))
+
+####################
+
+myList = [1, 2, 4, 4, 1, 4, 2, 6, 2, 9]
+#
+# put your code here
+#
+res = []
+for i in myList:
+    if i not in res:
+        res.append(i)
+print("The list with unique elements only:")
+print(res)
+
+########################
+
+squares = [x ** 2 for x in range(10)]
+print(squares)
+
+########################
+
+squares = [x ** 2 for x in range(10)]
+print(squares)
+twos = [2 ** i for i in range(8)]
+print(twos)
+odds = [x for x in squares if x % 2 != 0 ]
+print(odds)
+
+######################################
+
+temps = [[0.0 for h in range(24)] for d in range(31)]
+#
+# the matrix is magically updated here
+#
+
+total = 0.0
+
+for day in temps:
+    total += day[11]
+
+average = total / 31
+
+print("Average temperature at noon:", average)
+
+#####################################
+
+temps = [[0.0 for h in range(24)] for d in range(31)]
+#
+# the matrix is magically updated here
+#
+
+highest = -100.0
+
+for day in temps:
+    for temp in day:
+        if temp > highest:
+            highest = temp
+
+print("The highest temperature was:", highest)
+
+####################################
+
+temps = [[0.0 for h in range(24)] for d in range(31)]
+#
+# the matrix is magically updated here
+#
+
+hotDays = 0
+
+for day in temps:
+    if day[11] > 20.0:
+        hotDays += 1
+
+print(hotDays, "days were hot.")
+
+###############################
