@@ -442,7 +442,7 @@ print("The list with unique elements only:")
 print(res)
 
 ########################
-
+## 2 dimentional arrays
 squares = [x ** 2 for x in range(10)]
 print(squares)
 
@@ -503,3 +503,64 @@ for day in temps:
 print(hotDays, "days were hot.")
 
 ###############################
+## 3 dimentional arrays
+rooms = [[[False for r in range(20)] for f in range(15)] for t in range(3)]
+
+print(rooms)
+
+rooms = [[[False for r in range(20)] for f in range(15)] for t in range(3)]
+rooms[1][9][13] = True
+print(rooms)
+
+rooms[0][4][1] = False
+
+########################
+vacancy = 0
+
+for roomNumber in range(20):
+    if not rooms[2][14][roomNumber]:
+        vacancy += 1
+
+#########################
+###Cubical Arrays
+##[expression for element in list if conditional]
+
+for element in list:
+    if conditional:
+        expression
+cubed = [num ** 3 for num in range(5)]
+print(cubed) # outputs: [0, 1, 8, 27, 64]
+
+####################################
+
+# A four-column/four-row table - a two dimensional array (4x4)
+
+table = [[":(", ":)", ":(", ":)"],
+         [":)", ":(", ":)", ":)"],
+         [":(", ":)", ":)", ":("],
+         [":)", ":)", ":)", ":("]]
+
+print(table)
+print(table[0][0]) # outputs: ':('
+print(table[0][3]) # outputs: ':)'
+
+#####################
+
+# Cube - a three-dimensional array (3x3x3)
+
+cube = [[[':(', 'x', 'x'],
+         [':)', 'x', 'x'],
+         [':(', 'x', 'x']],
+
+        [[':)', 'x', 'x'],
+         [':(', 'x', 'x'],
+         [':)', 'x', 'x']],
+
+        [[':(', 'x', 'x'],
+         [':)', 'x', 'x'],
+         [':)', 'x', 'x']]]
+
+print(cube)
+print(cube[0][0][0]) # outputs: ':('
+print(cube[2][2][0]) # outputs: ':)'
+
