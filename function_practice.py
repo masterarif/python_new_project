@@ -308,4 +308,142 @@ for i in range(len(testYears)):
 		print("Failed")
 
 ###################################
+# PRIME NUMBER SERIES
+def isPrime(num):
+#
+# put your code here
+#
+    x = 2
+    while x < num - 1:
+        if num % x == 0:
+            return False
+        x += 1
+    return True
+
+
+for i in range(1, 20):
+	if isPrime(i + 1):
+		print(i + 1, end=" ")
+print()
+
+
+#####################################
+
+def multiply(a, b):
+    return a * b
+
+print(multiply(3, 4))    # outputs: 12
+#################################
+def multiply(a, b):
+    return
+
+print(multiply(3, 4))    # outputs: None
+
+###########################
+
+# Example 1
+def wishes():
+    print("My Wishes")
+    return "Happy Birthday"
+
+wishes()    # outputs: My Wishes
+
+#####################################
+# Example 2
+def wishes():
+    print("My Wishes")
+    return "Happy Birthday"
+
+print(wishes())    # outputs: My Wishes
+                   #          Happy Birthday
+######################################
+
+def mylist(names):
+    for i in range(mylist):
+        print("Hi", i)
+
+mylist(["abc","xys", "Efg"])
+
+######################################
+
+def mylist(names):
+    for i in names:
+        print("Hi", i)
+
+def wishes():
+    print("Hello")
+    return "bye"
+
+mylist(["abc","xys", "Efg"])
+wishes()
+print(wishes())
+
+############################
+
+def isInt(data):
+    if type(data) == int:
+        return True
+    elif type(data) == float:
+        return False
+
+print(isInt(5))
+print(isInt(5.0))
+print(isInt("5"))
+
+###########################
+
+
+def listUpdater(lst):
+    updList = []
+    for elem in lst:
+        elem **= 2
+        updList.append(elem)
+    return updList
+
+l = [1, 2, 3, 4, 5]
+print(listUpdater(l))
+
+############################
+
+def myFunction():
+    var = 2
+    print("Do I know that variable?", var)
+
+var = 1
+myFunction()
+print(var)
+
+##############################
+
+def myFunction():
+    print("Do I know that variable?", var)
+
+var = 1
+myFunction()
+print(var)
+
+###############################
+
+## Functions and scopes: the global keyword
+
+def myFunction():
+    global var
+    var = 2
+    print("Do I know that variable?", var)
+
+var = 1
+myFunction()
+print(var)
+
+##############################
+
+def myFunction(myList1):
+    print(myList1)
+    myList1 = [0, 1]
+
+myList2 = [2, 3]
+myFunction(myList2)
+print(myList2)
+
+#############################
 

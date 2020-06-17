@@ -1,9 +1,7 @@
-def strangeFunction(n):
-    if(n % 2 == 0):
-        return True
-x = int(input("Enter any number : "))
-result = strangeFunction(x)
-if result == True:
-    print("The number is divisible by 2")
-else:
-    print("The number is not divisible by 2")
+def myFunction(myList1):
+    print(myList1)
+    myList1 = [0, 1]
+
+myList2 = [2, 3]
+myFunction(myList2)
+print(myList2)
