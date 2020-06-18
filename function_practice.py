@@ -447,3 +447,394 @@ print(myList2)
 
 #############################
 
+def myFunction():
+    var = 2
+    print("Do I know that variable?", var)
+
+var = 1
+myFunction()
+print(var)
+
+### result : Do I know that variable? 2
+### 1
+
+################################
+
+def myFunction():
+    print("Do I know that variable?", var)
+
+var = 1
+myFunction()
+print(var)
+
+### result : Do I know that variable? 1
+### 1
+
+################################
+
+def myFunction(n):
+    print("I got", n)
+    n += 1
+    print("I have", n)
+
+var = 1
+myFunction(var)
+print(var)
+
+## result I got 1
+##        I have 2
+##        1
+
+########################
+## 1. A variable that exists outside a function has a scope
+# inside the function body (Example 1) unless the function
+# defines a variable of the same name
+
+var = 2
+
+def multByVar(x):
+    return x * var
+
+print(multByVar(7))
+
+# outputs: 14
+
+#########################
+
+def multip(x):
+    var = 7
+    return x * var
+
+var = 3
+print(multip(7))    # outputs: 49
+
+###########################
+
+def adding(x):
+    var = 7
+    return x + var
+
+print(adding(4))    # outputs: 11
+
+print(var)    # NameError
+
+##########################
+
+var = 2
+print(var)    # outputs: 2
+
+def retVar():
+    global var
+    var = 5
+    return var
+
+print(retVar())    # outputs: 5
+
+print(var)    # outputs: 5
+
+###########################
+
+a = 1
+
+def fun():
+    a = 2
+    print(a)
+
+fun()
+print(a)
+
+###########################
+
+a = 1
+
+def fun():
+    global a
+    a = 2
+    print(a)
+
+fun()
+a = 3
+print(a)
+
+###################
+
+a = 1
+
+def fun():
+    global a
+    a = 2
+    print(a)
+
+a = 3
+fun()
+print(a)
+
+#########################
+
+#Some simple functions: evaluating the BMI
+#Let's get started on a function to evaluate the Body Mass Index (BMI).
+
+#BMI equals weight in kilograms divided by height in meters squared
+
+def bmi(weight, height):
+    return weight / height ** 2
+
+print(bmi(52.5, 1.65))
+
+##########################
+
+def lbtokg(lb):
+    return lb * 0.45359237
+
+print(lbtokg(1))
+
+########################
+def ftintom(ft, inch=0.0):
+    return ft * 0.3048 + inch * 0.0254
+
+
+def lbstokg(lb):
+    return lb * 0.45359237
+
+
+def bmi(weight, height):
+    if height < 1.0 or height > 2.5 or \
+            weight < 20 or weight > 200:
+        return None
+
+    return weight / height ** 2
+
+
+print(bmi(weight=lbstokg(176), height=ftintom(5, 7)))
+
+#########################
+
+def bmi(weight, height):
+    if height < 1.0 or height > 2.5 or \
+            weight < 20 or weight > 200:
+        return None
+
+    return weight / height ** 2
+
+
+print(bmi(352.5, 1.65))
+
+##########################
+
+#Some simple functions: continued
+#Let's play with triangles now. We'll start with a function to check whether three sides of given lengths can build a triangle.
+
+#A triangle with equal sides
+
+#We know from school that the sum of two arbitrary sides has to be longer than the third side.
+
+#It won't be a hard challenge. The function will have three parameters - one for each side.
+
+def isItATriangle(a, b, c):
+    if a + b <= c or b + c <= a or \
+    c + a <= b:
+        return False
+    return True
+
+print(isItATriangle(1, 1, 1))
+print(isItATriangle(1, 1, 3))
+
+#####
+
+def isItATriangle(a, b, c):
+    return a + b > c and b + c > a and c + a > b
+
+print(isItATriangle(1, 1, 1))
+print(isItATriangle(1, 1, 3))
+
+#####
+
+def isItATriangle(a, b, c):
+    if a + b <= c:
+        return False
+    if b + c <= a:
+        return False
+    if c + a <= b:
+        return False
+    return True
+
+print(isItATriangle(1, 1, 1))
+print(isItATriangle(1, 1, 3))
+
+####
+
+
+def isItATriangle(a, b, c):
+    return a + b > c and b + c > a and c + a > b
+
+def isItRightTriangle(a, b, c):
+    if not isItATriangle(a, b, c):
+        return False
+    if c > a and c > b:
+        return c ** 2 == a ** 2 + b ** 2
+    if a > b and a > c:
+        return a ** 2 == b ** 2 + c ** 2
+
+print(isItRightTriangle(5, 3, 4))
+print(isItRightTriangle(1, 3, 4))
+
+####
+
+def isItATriangle(a, b, c):
+    return a + b > c and b + c > a and c + a > b
+
+a = float(input("Enter the first side's length: "))
+b = float(input("Enter the second side's length: "))
+c = float(input("Enter the third side's length: "))
+
+if isItATriangle(a, b, c):
+    print("Congratulations - it can be a triangle.")
+else:
+    print("Sorry, it won't be a triangle.")
+
+##################################################
+
+#Some simple functions: evaluating a triangle's field
+#We can also evaluate a triangle's field. Heron's formula will be handy here:
+
+#s = (a + b + c) / 2
+#A = the suare root of s(s - a)(s - b)(s - c)
+#We're going use the exponentiation operator to find the square root - it may seem strange, but it works:
+
+#The square root of x = x to the power of 1/2
+
+#This is the resulting code:
+
+def isItATriangle(a, b, c):
+    return a + b > c and b + c > a and c + a > b
+
+def heron(a, b, c):
+    p = (a + b + c) / 2
+    return (p * (p - a) * (p - b) * (p - c)) ** 0.5
+
+def fieldOfTriangle(a, b, c):
+    if not isItATriangle(a, b, c):
+        return None
+    return heron(a, b, c)
+
+print(fieldOfTriangle(1., 1., 2. ** .5))
+
+####
+
+def isItATriangle(a, b, c):
+    return a + b > c and b + c > a and c + a > b
+
+a = float(input("Enter the first side's length: "))
+b = float(input("Enter the second side's length: "))
+c = float(input("Enter the third side's length: "))
+
+if isItATriangle(a, b, c):
+    print("Congratulations - it can be a triangle.")
+else:
+    print("Sorry, it won't be a triangle.")
+
+####################################
+
+#Some simple functions: factorials
+#Another function we're about to write is factorials. Do you remember how a factorial is defined?
+
+0! = 1 (yes! it's true)
+1! = 1
+2! = 1 * 2
+3! = 1 * 2 * 3
+4! = 1 * 2 * 3 * 4
+:
+:
+n! = 1 * 2 ** 3 * 4 * ... * n-1 * n
+
+####
+
+
+def factorialFun(n):
+    if n < 0:
+        return None
+    if n < 2:
+        return 1
+
+    product = 1
+    for i in range(2, n + 1):
+        product *= i
+    return product
+
+
+for n in range(1, 6):  # testing
+    print(n, factorialFun(n))
+
+
+#################################
+
+#Some simple functions: Fibonacci numbers
+#Are you familiar with Fibonacci numbers?
+
+#They are a sequence of integer numbers built using a very simple rule:
+
+#the first element of the sequence is equal to one (Fib1 = 1)
+#the second is also equal to one (Fib2 = 1)
+#every subsequent number is the sum of the two preceding numbers (Fibi = Fibi-1 + Fibi-2)
+#Here are some of the first Fibonacci numbers:
+
+fib1 = 1
+fib2 = 1
+fib3 = 1 + 1 = 2
+fib4 = 1 + 2 = 3
+fib5 = 2 + 3 = 5
+fib6 = 3 + 5 = 8
+fib7 = 5 + 8 = 13
+
+
+#####
+
+def fib(n):
+    if n < 1:
+         return None
+    if n < 3:
+        return 1
+
+    elem1 = elem2 = 1
+    sum = 0
+    for i in range(3, n + 1):
+        sum = elem1 + elem2
+        elem1, elem2 = elem2, sum
+    return sum
+
+for n in range(1, 10): # testing
+    print(n, "->", fib(n))
+
+################################
+
+# Recursive implementation of the factorial function
+def factorial(n):
+    if n == 1:    # the base case (termination condition)
+        return 1
+    else:
+        return n * factorial(n - 1)
+
+print(factorial(4)) # 4 * 3 * 2 * 1 = 24
+
+
+####
+
+def factorial(n):
+    return n * factorial(n - 1)
+
+print(factorial(4))    #### ERROR
+
+####
+
+def fun(a):
+    if a > 30:
+        return 3
+    else:
+        return a + fun(a + 3)
+
+print(fun(25))
+
+## Output 56
+
+
+
