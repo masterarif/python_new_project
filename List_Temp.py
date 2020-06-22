@@ -110,100 +110,55 @@ def getPlayerMove(board):
 
 
 def chooseRandomMoveFromList(board, movesList):
+# Returns a valid move from the passed list on the passed board.
+# Returns None if there is no valid move.
 
- 84.     # Returns a valid move from the passed list on the passed board.
+    possibleMoves = []
+    for i in movesList:
+        if isSpaceFree(board, i):
+            possibleMoves.append(i)
+        if len(possibleMoves) != 0:
+            return random.choice(possibleMoves)
+        else:
+            return None
+def getComputerMove(board, computerLetter):
+    # Given a board and the computer's letter, determine where to move and return that move.
+    if computerLetter == 'X':
+        playerLetter = 'O'
+    else:
+        playerLetter = 'X'
+    #h0e   our algorithm for our Tic Tac Toe AI:
+    # First, check if we can win in the next move
 
- 85.     # Returns None if there is no valid move.
+    for i in range(1, 10):
+        copy = getBoardCopy(board)
+        if isSpaceFree(copy, i):
+            makeMove(copy, computerLetter, i)
+        if isWinner(copy, computerLetter):
+            return i
+    # Check if the player could win on their next move, and block them.
+    for i in range(1, 10):
+        copy = getBoardCopy(board)
+        if isSpaceFree(copy, i):
+            makeMove(copy, playerLetter, i)
+        if isWinner(copy, playerLetter):
+            return i
 
- 86.     possibleMoves = []
+# Try to take one of the corners, if they are free.
 
- 87.     for i in movesList:
+    move = chooseRandomMoveFromList(board, [1, 3, 7, 9])
 
- 88.         if isSpaceFree(board, i):
+    if move != None:
+        return move
 
- 89.             possibleMoves.append(i)
+# Try to take the center, if it is free.
 
- 90.
+    if isSpaceFree(board, 5):
+        return 5
 
- 91.     if len(possibleMoves) != 0:
+# Move on one of the sides.
 
- 92.         return random.choice(possibleMoves)
-
- 93.     else:
-
- 94.         return None
-
- 95.
-
- 96. def getComputerMove(board, computerLetter):
-
- 97.     # Given a board and the computer's letter, determine where to move and return that move.
-
- 98.     if computerLetter == 'X':
-
- 99.         playerLetter = 'O'
-
-100.     else:
-
-101.         playerLetter = 'X'
-
-102.
-
-103.     # Here is our algorithm for our Tic Tac Toe AI:
-
-104.     # First, check if we can win in the next move
-
-105.     for i in range(1, 10):
-
-106.         copy = getBoardCopy(board)
-
-107.         if isSpaceFree(copy, i):
-
-108.             makeMove(copy, computerLetter, i)
-
-109.             if isWinner(copy, computerLetter):
-
-110.                 return i
-
-111.
-
-112.     # Check if the player could win on their next move, and block them.
-
-113.     for i in range(1, 10):
-
-114.         copy = getBoardCopy(board)
-
-115.         if isSpaceFree(copy, i):
-
-116.             makeMove(copy, playerLetter, i)
-
-117.             if isWinner(copy, playerLetter):
-
-118.                 return i
-
-119.
-
-120.     # Try to take one of the corners, if they are free.
-
-121.     move = chooseRandomMoveFromList(board, [1, 3, 7, 9])
-
-122.     if move != None:
-
-123.         return move
-
-124.
-
-125.     # Try to take the center, if it is free.
-
-126.     if isSpaceFree(board, 5):
-
-127.         return 5
-
-128.
-
-129.     # Move on one of the sides.
-
-130.     return chooseRandomMoveFromList(board, [2, 4, 6, 8])
+return chooseRandomMoveFromList(board, [2, 4, 6, 8])
 
 131.
 
