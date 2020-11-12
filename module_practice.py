@@ -85,6 +85,7 @@ print(floor(-x), floor(-y))
 print(ceil(x), ceil(y))
 print(ceil(-x), ceil(-y))
 print(trunc(x), trunc(y))
+
 print(trunc(-x), trunc(-y))
 
 ##########################
