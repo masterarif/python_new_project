@@ -32,3 +32,10 @@ print(fruits[:3])
 print(fruits[-4:])
 print(fruits[-3:-1])
 
+#multidimentional array
+multd = [[1,2], [3,4], [5,6], [7,8]]
+print(multd)
+print(multd[1])
+print(multd[3])
+print(multd[2][1])
+print(multd[3][1])
